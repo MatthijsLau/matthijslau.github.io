@@ -6,9 +6,10 @@ Mathematics PhD student at l'univesità degli studi di Salerno in Fisciano (SA) 
 
 ---
 ***Short CV***
-*my full CV is available [here]({{ site.url }}/files/cv.pdf)*
+*my full CV is available [here]({{ site.url }}/files/CV.pdf)*
 
-In November 2025, I began my PhD in Mathematics at the Department of Mathematics at the University of Salerno under the supervision of [Luca Vitagliano](http://www.dipmat2.unisa.it/people/vitagliano/www/).
+In November 2025, I began my PhD in Mathematics at the Department of Mathematics at the University of Salerno under the supervision of [Luca Vitagliano](http://www.dipmat2.unisa.it/people/vitagliano/www/).  
+  &emsp; My research interests include, but are not limited to, \(G\)-structures, Lie groupoids, and differentiable stacks. In particular, I am interested in applications of geometry in mathematical physics.
 
 2023-2025: M.Sc. in Mathematics, specialising in Mathematical Physics, at Radboud University Nijmegen.  
   &emsp; *Thesis*: Fibred Lie groupoids and multiplicative connections, supervised by [Ioan Mărcuț](https://sites.google.com/view/marcut).
