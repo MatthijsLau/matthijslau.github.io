@@ -2,12 +2,7 @@
 title: About
 ---
 
-## Matthijs Lau
 Mathematics PhD student at l'univesità degli studi di Salerno in Fisciano (SA) Italy
-- [**About**](https://matthijslau.github.io)
-- [Research // Workshops and conferences](https://matthijslau.github.io/research/)
-- [Teaching](https://matthijslau.github.io/teaching/)
-
 ---
 ***Short CV***
 
