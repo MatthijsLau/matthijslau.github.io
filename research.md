@@ -2,6 +2,9 @@
 layout: page
 title: Research
 ---
+**Publications**
+*In preparation*
+- Multiplicative Ehresmann connections and Lie groupoid fibrations (with I. Mărcuț)
 
 **Talks and Posters**  
 *Talks*
