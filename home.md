@@ -1,15 +1,10 @@
----
-layout: page
-title: home
----
-
 ## Matthijs Lau
 Mathematics PhD student at l'univesità degli studi di Salerno in Fisciano (SA) Italy
 - [Research // Workshops and conferences](https://matthijslau.github.io/research/)
 - [Teaching](https://matthijslau.github.io/teaching/)
 ---
 ***Short CV***
-*my full CV is available [here]
+*my full CV is available [here]({{ site.url }}/files/cv.pdf)*
 
 In November 2025 I began my PhD in Mathematics at the Dipartment of Mathematics at the University of Salerno under the supervision 
 
