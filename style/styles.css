@@ -12,6 +12,12 @@ html {
     scrollbar-gutter: stable;
 }
 
+body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+}
+
 /* General containers*/
 .main-container {
     max-width: 960px;
