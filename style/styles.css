@@ -8,6 +8,10 @@
     --link-color: hsl(349, 28%, 37%);
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
     color: var(--text-color);
     background-color: var(--bg-color);
