@@ -98,7 +98,7 @@ summary {
 .leftheader a:visited,
 .leftheader a:active,
 .leftheader a:hover {
-    color: var(--text-color);
+    color: var(--main-color);
     text-decoration: none;
 }
 
@@ -169,15 +169,18 @@ nav ul li a:hover {
 
 /* text setting */
 h1 {
+    color: var(--main-color);
     margin: 5px auto -5px
 }
 
 h2 {
+    color: var(--main-color);
     margin: 0px auto 5px
 }
 
 h3 {
     margin: 0px auto -5px
+    color: var(--main-color);
 }
 
 .name-subtitle {
