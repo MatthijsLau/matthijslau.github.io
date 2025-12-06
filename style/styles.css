@@ -179,7 +179,7 @@ h2 {
 }
 
 h3 {
-    margin: 0px auto -5px
+    margin: 0px auto -5px;
     color: var(--main-color);
 }
 
