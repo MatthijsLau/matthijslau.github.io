@@ -183,7 +183,7 @@ body {
 }
 
 .rightheader nav ul li+li a {
-    padding: auto 15.5px;
+    padding: 10px 15.5px;
     border-left: 0.5px solid var(--accent-dark-color);
 }
 
