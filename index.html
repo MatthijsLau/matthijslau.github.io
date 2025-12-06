@@ -4,20 +4,58 @@
 <head>
     <title> Matthijs Lau's personal webpage</title>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylessheet" href="/style/styles.css" />
-    <link rel="icon" href="/images/favicon.png" type="image/png" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="style/styles.css">
+    </link>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    </link>
+    <link rel="shortcut icon" href="/favicon.ico">
+    </link>
 </head>
 
 <body>
     <div class="main-container">
-        <div class="hline" style="height:8px"></div>
-        <div class="header">
-            Matthijs 
+        <div data-include="header"></div>
+        <div class="content">
+            <div class="box">
+                <img src="assets/homepicture.png" alt="A picture of me"
+                    style="width: 200px;float: right; margin: 5px; margin-right:0px; margin-top:12px; border: 5px solid var(--main-color);">
+            </div>
+            <div>
+                <h1>About me</h1>
+                <p>
+                    Here is a short excerpt from my CV:<br>
+                    <i>My full resume can be found <a href="assets/documents/CV/CV.pdf">here</a>.</i>
+                </p>
+                <p>
+                    In November 2025, I began my PhD in Mathematics at the <a
+                        href="https://www.dipmat.unisa.it/">Department
+                        of Mathematics</a> at the <a href="https://web.unisa.it/">University of Salerno</a> under the
+                    supervision of <a href="http://www.dipmat2.unisa.it/people/vitagliano/www/">Luca Vitagliano</a>.<br>
+                    My research interests include, but are not limited to, \(G\)-structures, Lie groupoids,
+                    differentiable stacks, and their relations to Riemannian, symplectic and Poisson geometry.<br>
+                    Additionally, I am interested in applications of differential geometric structures in mathematical
+                    physics.
+                </p>
+                <p>
+                    <em>Sep. 2023 – Aug. 2025:</em> M.Sc. in Mathematics; specialization: Mathematical Physics, at
+                    Radboud University Nijmegen (Netherlands).<br>
+                    &emsp; <em>Thesis</em>: <a href="assets/documents/MT/MT.pdf" target="_blank" rel="noopener">
+                        Fibred Lie groupoids and multiplicative connections </a>, supervised by <a
+                        href="https://sites.google.com/view/marcut">Ioan Mărcuț</a>.
+                </p>
+                <p>
+                    <em>Sep. 2019 – Jun. 2023:</em> B.Sc in Mathematics, and B.Sc in Physics at Radboud University
+                    Nijmegen (Netherlands).<br>
+                    &emsp; <em>Thesis</em>: <a href="assets/documents/BT/BT.pdf" target="_blank" rel="noopener">
+                        Symplectic geometry: Darboux' theorem and Hamiltonian systems</a>, supervised by <a
+                        href="https://sites.google.com/view/marcut">Ioan Mărcuț</a>.
+                </p>
+            </div>
         </div>
-        <div class="hline" style="height:8px"></div>
-        
+        <div data-include="footer"></div>
     </div>
 </body>
 

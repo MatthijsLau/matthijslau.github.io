@@ -5,13 +5,16 @@
 \usepackage[margin = .5in]{geometry}
 \usepackage{ebgaramond}       % Use the EB Garamond font
 
-\usepackage{xcolor}          % To add colour to the document
-\definecolor{mydarkblue}{HTML}{424242}
+\usepackage{xcolor}          % To add colour to the document and enable \pagecolor
+
+\definecolor{mytext}{HTML}{1f2437}
 \definecolor{myblue}{HTML}{304263}
-\definecolor{mylightblue}{HTML}{496497}
+\definecolor{mylink}{HTML}{79444e}
+
+\definecolor{mybackground}{HTML}{ffffff}
 
 %\usepackage[hidelinks]{hyperref} % For clickable links in the PDF
-\usepackage[colorlinks = true, urlcolor = myblue]{hyperref} % For clickable links in the PDF
+\usepackage[colorlinks = true, urlcolor = mylink]{hyperref} % For clickable links in the PDF
 \usepackage{marvosym}        % Provides icons for the contact details
 
 \usepackage[backend = bibtex, style=numeric]{biblatex}
@@ -40,7 +43,7 @@
 \usepackage{graphicx}        % To insert picture
 \makeatletter
 \let\old@rule\@rule
-\def\@rule[#1]#2#3{\textcolor{mydarkblue}{\old@rule[#1]{#2}{#3}}}
+\def\@rule[#1]#2#3{\textcolor{myblue}{\old@rule[#1]{#2}{#3}}}
 \makeatother
 
 \usepackage[most]{tcolorbox}
@@ -50,12 +53,12 @@
 	\par\vspace{-3.5ex}
 	\begin{tcolorbox}[
 		colframe = white,
-		coltitle = mydarkblue,
-		colback = white,
+		coltitle = myblue,
+		opacityback = 0,
 		boxrule = 0pt,
 		width = \textwidth,
 		title = {\Large{#1}},
-		after title = {\par\vspace*{-2.8ex}{\color{mydarkblue}\vspace{5pt}\rule{\textwidth}{2pt}}\vspace*{-1.4ex}}
+		after title = {\par\vspace*{-2.8ex}{\color{myblue}\vspace{5pt}\rule{\textwidth}{2pt}}\vspace*{-1.4ex}}
 		]
 	\vspace{1ex}
 }{
@@ -67,12 +70,12 @@
 	\par\vspace{-3.5ex}
 	\begin{tcolorbox}[
 		colframe = white,
-		coltitle = mydarkblue,
+		coltitle = myblue,
 		colback = white,
 		boxrule = 0pt,
 		width = \textwidth,
 		title = {\Large{#1}},
-		after title = {\par\vspace*{-2.8ex}{\color{mydarkblue}\vspace{5pt}\rule{\textwidth}{2pt}}\vspace*{-1.4ex}}
+		after title = {\par\vspace*{-2.8ex}{\color{myblue}\vspace{5pt}\rule{\textwidth}{2pt}}\vspace*{-1.4ex}}
 		]
 		\vspace{1ex}
 	\begin{flushright}
@@ -95,7 +98,7 @@
 		\ifthenelse{
 				\boolean{subsequentondsec}
 			}{
-				\par\vspace*{-4.2ex}{\color{mylightblue}\vspace{5pt}\rule{\textwidth}{.7pt}}\vspace{-2.8ex}
+				\par\vspace*{-4.2ex}{\color{mylink}\vspace{5pt}\rule{\textwidth}{.7pt}}\vspace{-2.8ex}
 			}{
 			}
 		}{
@@ -114,9 +117,7 @@
 		\ifthenelse{\equal{#3}{}}{}{at \emph{#3}}
 	\end{minipage}
 	\begin{minipage}[t]{.1985\textwidth}
-		\begin{flushright}
-			#4
-		\end{flushright}
+		\begin{flushright}#4\end{flushright}
 	\end{minipage}
 	\vspace{-3ex}
 	\begin{flushright}
@@ -164,6 +165,9 @@
 
 \begin{document}
 \pagestyle{empty}
+\color{mytext}
+\pagecolor{mybackground}
+
 \begin{minipage}{.55\textwidth}
 
 	\fontfamily{ppl} \selectfont
