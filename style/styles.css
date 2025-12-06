@@ -1,0 +1,201 @@
+/* setup up color scheme */
+:root {
+    --main-color: hsl(228, 28%, 37%);
+    --bg-color: hsl(49, 28%, 96%);
+    --text-color: hsl(228, 28%, 17%);
+    --accent-dark-color: hsl(228, 28%, 23%);
+    --accent-light-color: hsl(228, 28%, 60%);
+    --link-color: hsl(349, 28%, 37%);
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+}
+
+/* General containers*/
+.main-container {
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: Georgia, serif;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.main-container a,
+.main-container a:visited {
+    color: var(--link-color);
+    text-decoration: none
+}
+
+.main-container a:hover {
+    text-decoration: underline dotted
+}
+
+.main-container a:active {
+    text-decoration: underline
+}
+
+.content {
+    padding: 10px;
+}
+
+/* Collapsibles */
+
+summary {
+    display: block;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0px;
+}
+
+.secondaryDetails {
+    margin: 0px auto -5px
+}
+
+.secondaryDetails[open] {
+    margin: 0px auto -5px
+}
+
+.secondaryDetails[open]>summary {
+    display: block;
+    text-decoration: underline;
+    font-weight: normal;
+    font-style: italic;
+    cursor: pointer;
+    margin: 10px auto -10px;
+}
+
+.secondaryDetails>summary {
+    display: block;
+    text-decoration: underline;
+    font-weight: normal;
+    font-style: italic;
+    cursor: pointer;
+    margin: 10px auto 0px;
+}
+
+/* Headers and navigation*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header links: always use the page text color, even inside .main-container */
+.leftheader,
+.rightheader {
+    padding: 10px;
+}
+
+.leftheader {
+    text-align: left;
+}
+
+.leftheader a,
+.leftheader a:visited,
+.leftheader a:active,
+.leftheader a:hover {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.rightheader {
+    text-align: right;
+}
+
+.rightheader a,
+.rightheader a:visited {
+    color: var(--bg-color);
+    text-decoration: none;
+}
+
+.rightheader a:hover {
+    color: var(--bg-color);
+    text-decoration: underline dotted
+}
+
+.rightheader a:active {
+    color: var(--bg-color);
+    text-decoration: underline
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--main-color);
+}
+
+nav ul li a,
+nav ul li a:visited,
+nav ul li a:active {
+    display: block;
+    color: var(--bg-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: var(--bg-color);
+    background-color: var(--accent-dark-color);
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+}
+
+.leftfooter,
+.rightfooter {
+    padding: 10px;
+}
+
+.leftfooter {
+    text-align: left;
+}
+
+.rightfooter {
+    text-align: right;
+
+}
+
+/* text setting */
+h1 {
+    color: var(--main-color);
+    margin: 5px auto -5px
+}
+
+h2 {
+    color: var(--main-color);
+    margin: 0px auto 5px
+}
+
+h3 {
+    margin: 0px auto -5px
+    color: var(--main-color);
+}
+
+.name-subtitle {
+    font-size: 16px;
+    font-style: italic;
+    margin: auto auto 5px
+}
+
+.subtitle {
+    font-style: italic;
+    margin: -5px auto -10px
+}
+
+/* hlines */
+.hline {
+    background-color: var(--main-color);
+    width: 100%;
+}
