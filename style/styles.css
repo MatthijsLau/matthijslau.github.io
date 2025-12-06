@@ -1,0 +1,61 @@
+/* General container*/
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: Georgia, serif;
+    margin-bottom: 20px
+}
+
+/* Section of content */
+.content {
+    padding: 10px;
+}
+
+.content a,
+.content a:visited {
+    text-decoration: none
+}
+
+.content a:hover {
+    text-decoration: underline dotted
+}
+
+.content a:active {
+    text-decoration: underline
+}
+
+/* Headers */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.header a,
+.header a:visited,
+.header a:hover,
+.header a:active {
+    text-decoration: none;
+}
+
+.leftheader,
+.rightheader {
+    padding: 10px;
+}
+
+.leftheader {
+    text-align: left;
+}
+
+.rightheader {
+    text-align: right;
+}
+
+/* hlines */
+
+
+
+.hline {
+    background-color: #424242;
+    width: 100%;
+}
