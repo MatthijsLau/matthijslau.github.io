@@ -23,7 +23,6 @@ body {
     max-width: 960px;
     margin: 0 auto;
     font-family: Georgia, serif;
-    margin-bottom: 20px;
     color: var(--text-color);
     font-size: 18px
 }
@@ -43,12 +42,9 @@ body {
 }
 
 .content-container {
-    padding: 0px
+    padding: 10px
 }
 
-.content {
-    padding: 10px;
-}
 
 /* Collapsibles */
 
@@ -73,11 +69,11 @@ body {
     text-decoration: underline;
     font-weight: bold;
     cursor: pointer;
-    margin: 10px auto 7px;
+    margin: 5px auto 7px;
 }
 
 .mainDetails ul {
-    margin: 10px auto 10px
+    margin: 0px auto 10px
 }
 
 .secondaryDetails {
@@ -94,7 +90,7 @@ body {
     font-weight: normal;
     font-style: italic;
     cursor: pointer;
-    margin: 10px auto -10px;
+    margin: 5px auto 5px;
 }
 
 .secondaryDetails>summary {
@@ -110,25 +106,27 @@ body {
 .banner-header {
     background-image:
         linear-gradient(rgba(248, 247, 242, 0.5), rgba(248, 247, 242, 0.8)),
-        url("/assets/images/banners/banner-siena.png");
+        url("/assets/images/banners/banner-fisciano.png");
     background-blend-mode: lighten;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.leftheader,
-.rightheader {
-    padding: 10px;
+    margin: 20px 10px
 }
 
 .leftheader {
     text-align: left;
+    text-shadow:
+         .5px  .5px 2px var(--bg-color),
+        -.5px  .5px 2px var(--bg-color),
+         .5px -.5px 2px var(--bg-color),
+        -.5px -.5px 2px var(--bg-color)
 }
 
 .leftheader a,
@@ -201,7 +199,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 0px
+    margin: 0px 10px
 }
 
 .leftfooter,
@@ -235,12 +233,12 @@ h3 {
 
 .name-subtitle {
     margin: 5px auto 5px;
-    /*webkit-text-stroke: 1px var(--text-color);*/
+    /* webkit-text-stroke: 1px var(--text-color);*/
 }
 
 .subtitle {
     font-style: italic;
-    margin: -5px auto -10px
+    margin: -5px auto 5px
 }
 
 .footer-p {
@@ -262,5 +260,4 @@ h3 {
 .hline {
     background-color: var(--main-color);
     width: 100%;
-    margin-top: 5px;
 }
