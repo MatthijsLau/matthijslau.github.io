@@ -104,6 +104,7 @@ body {
 
 /* Headers and navigation*/
 .banner-header {
+    max-height: 120;
     background-image: linear-gradient(rgba(248, 247, 242, 0.5), rgba(248, 247, 242, 0.8));
     background-blend-mode: lighten;
     background-repeat: no-repeat;
@@ -119,6 +120,7 @@ body {
 }
 
 .leftheader {
+    margin-left: 10px;
     text-align: left;
     text-shadow:
          .5px  .5px 2px var(--bg-color),

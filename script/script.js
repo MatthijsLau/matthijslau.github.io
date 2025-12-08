@@ -23,8 +23,8 @@ $(window).on('load', function () {
 
     const images = [
         "/assets/images/banners/banner-fisciano.png",
-        "/assets/images/banners/banners-siena.png",
-        "/assets/images/banners/banners-skadar.png"
+        "/assets/images/banners/banner-siena.png",
+        "/assets/images/banners/banner-skadar.png"
     ];
 
     const randomImage = images[Math.floor(Math.random() * images.length)];
