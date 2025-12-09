@@ -1,135 +1,67 @@
-// --- GLOBALS -------------------------------------------------
+// Banner loader: simple and without preloading logic
 
+// List of banner images
 const images = [
-    "/assets/images/banners/banner-fisciano.png",
-    "/assets/images/banners/banner-siena.png",
-    "/assets/images/banners/banner-skadar.png"
+    '/assets/images/banners/banner-fisciano.png',
+    '/assets/images/banners/banner-siena.png',
+    '/assets/images/banners/banner-skadar.png',
+    '/assets/images/banners/banner-sg.png',
+    '/assets/images/banners/banner-blacklake.png'
 ];
 
-// Initialize to a random image so the first banner is randomized
-let currentImage = images[Math.floor(Math.random() * images.length)]; // renamed from randomImage to avoid conflicts
+// Track which banner is currently displayed
+let currentBanner = null;
 
-// --- Simple in-memory cache for loaded pages to avoid repeat fetches
-const pageCache = Object.create(null);
-
-
-// --- IMAGE HELPERS -----------------------------------------
-// Preload a single image and return a promise that resolves when loaded (or rejects on error)
-function preloadImage(src) {
-    return new Promise((resolve, reject) => {
-        if (!src) return reject(new Error('no-src'));
-        try {
-            const img = new Image();
-            img.onload = () => resolve(src);
-            img.onerror = () => reject(new Error('failed'));
-            img.src = src;
-        } catch (e) {
-            reject(e);
-        }
-    });
+// Set the banner background immediately (no preloading or Image objects).
+function setBanner(url) {
+    const $banner = $('.banner-header');
+    if (!$banner.length) return;
+    $banner.css('background-image', "linear-gradient(rgba(248,247,242,0.5), rgba(248,247,242,0.8)), url('" + url + "')");
+    currentBanner = url;
 }
 
-// Read the currently-declared background URL of .banner-header (if present)
-function getDeclaredBannerUrl() {
-    const el = document.querySelector('.banner-header');
-    if (!el) return null;
-    const bg = el.style.backgroundImage || '';
-    const m = bg.match(/url\(['"]?(.*?)['"]?\)/);
-    return m ? m[1] : null;
-}
-
-
-// --- RANDOM BANNER -------------------------------------------
-
+// Choose a random banner different from current (when possible) and set it.
 function randBanner() {
-    // avoid repeating previous banner
-    const available = images.filter(img => img !== currentImage);
-
-    const chosen = available[Math.floor(Math.random() * available.length)];
-    currentImage = chosen;
-
-    $(".banner-header").css(
-        "background-image",
-        `linear-gradient(rgba(248, 247, 242, 0.2), rgba(248, 247, 242, .8)), url('${chosen}')`
-    );
+    if (!images || images.length === 0) return;
+    let candidates = images.filter(function (s) { return s !== currentBanner; });
+    if (!candidates.length) candidates = images.slice();
+    const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+    setBanner(chosen);
 }
 
+// Load a page fragment into #content
+function loadPage(file) { $('#content').load(file); }
 
-// --- PAGE LOADER ---------------------------------------------
-
-function loadPage(file) {
-    const $content = $('#content');
-
-    // Use cached HTML if available
-    if (pageCache[file]) {
-        $content.html(pageCache[file]);
-        return;
-    }
-
-    // Fetch, cache, then insert
-    $.get(file).done(html => {
-        pageCache[file] = html;
-        $content.html(html);
-    }).fail(() => {
-        $content.html('<p>Failed to load page.</p>');
-    });
-}
-
-
-// --- NAVIGATION HANDLING -------------------------------------
-
-$(document).on('click', '.nav-link', function (event) {
-    event.preventDefault();
-
-    if ($(this).attr('id') === 'name') {
-        randBanner();
-    }
-
-    const page = $(this).data('page') + '.html';
-    loadPage(page);
-});
-
-
-// --- INITIAL PAGE LOAD & HTML INCLUSION -----------------------
-
-// Load HTML snippets into elements with `data-include` and
-// run initial setup (banner + page load) after all includes settle.
+// On ready: include header/footer fragments, then set initial banner and page.
 $(function () {
     const includes = $('[data-include]');
-    if (includes.length === 0) {
-        randBanner();
-        loadPage('aboutme.html');
-        return;
-    }
-
-    const promises = [];
+    const jobs = [];
     includes.each(function () {
         const $el = $(this);
         const file = $el.data('include') + '.html';
-        const p = $.get(file).then(html => {
-            $el.html(html);
-        }).catch(() => {
-            $el.html('');
-        });
-        promises.push(p);
+        jobs.push($.get(file).then(function (html) { $el.html(html); }).catch(function () { $el.html(''); }));
     });
 
-    Promise.all(promises).finally(() => {
-        // All includes attempted; proceed with initial setup.
-        // Only preload the banner image that is already declared in the DOM
-        const declared = getDeclaredBannerUrl();
-        if (declared) {
-            preloadImage(declared).then(() => {
-                // keep current background (already declared) and then load initial page
-                loadPage('aboutme.html');
-            }).catch(() => {
-                // if preload fails, still load the page
-                loadPage('aboutme.html');
-            });
-        } else {
-            // no declared banner — fall back to running randBanner and load page
-            randBanner();
-            loadPage('aboutme.html');
+    Promise.all(jobs).then(function () {
+        const el = document.querySelector('.banner-header');
+        let declared = null;
+        if (el && el.style && el.style.backgroundImage) {
+            const m = el.style.backgroundImage.match(/url\(['"]?(.*?)['"]?\)/);
+            declared = m ? m[1] : null;
         }
-    });
+
+        if (declared) setBanner(declared);
+        else randBanner();
+
+        loadPage('aboutme.html');
+    }).catch(function () { randBanner(); loadPage('aboutme.html'); });
+});
+
+// Navigation: clicking .nav-link loads pages; clicking the #name link also switches banner.
+$(document).on('click', '.nav-link', function (e) {
+    e.preventDefault();
+    const page = $(this).data('page');
+    if (!page) return;
+    if ($(this).attr('id') === 'name') randBanner();
+    loadPage(page + '.html');
 });
